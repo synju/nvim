@@ -19,3 +19,7 @@ vim.opt.foldlevel = 99  -- To show all folds by default
 
 -- Turn off wrapping
 vim.opt.wrap = false
+
+-- Relative Line Numbers
+vim.opt.number = true
+vim.opt.relativenumber =  true
