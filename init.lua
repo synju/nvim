@@ -13,6 +13,9 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
 
+-- include "localoptions", important for autosession managing sessions properly, must load before plugins
+vim.o.sessionoptions = "buffers,curdir,tabpages,winsize,localoptions"
+
 -- load plugins
 require("lazy").setup({
   {

@@ -19,6 +19,3 @@ vim.opt.foldlevel = 99  -- To show all folds by default
 
 -- Turn off wrapping
 vim.opt.wrap = false
-
--- include "localoptions", important for managing sessions properly
-vim.o.sessionoptions = "buffers,curdir,tabpages,winsize,localoptions"
