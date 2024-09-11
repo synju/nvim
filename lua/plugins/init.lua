@@ -29,9 +29,24 @@ return {
 
   -- Multi Cursors
   {
-    'mg979/vim-visual-multi',
-    branch = 'master',
-    lazy=false,
-    priority = 1000,
+    'anuvyklack/hydra.nvim',  -- Hydra is required by multicursors.nvim
+    lazy = false,
   },
+  {
+    'smoka7/multicursors.nvim',
+    branch = 'main',
+    lazy = false,
+    config = function()
+      local mc = require("multicursors")
+      mc.setup({
+        -- Custom options (if needed) can go here
+      })
+
+      -- Keybindings for multiple cursors
+      vim.api.nvim_set_keymap('n', '<A-j>', ":MCstart<CR>", { noremap = true, silent = true })   -- Start multiple cursors
+      vim.api.nvim_set_keymap('v', '<A-j>', ":MCstart<CR>", { noremap = true, silent = true })   -- Visual mode start
+      vim.api.nvim_set_keymap('n', '<A-k>', ":MCremove<CR>", { noremap = true, silent = true })  -- Remove a cursor
+      vim.api.nvim_set_keymap('n', '<A-x>', ":MCskip<CR>", { noremap = true, silent = true })    -- Skip the current occurrence
+    end
+  }
 }
