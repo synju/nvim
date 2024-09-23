@@ -27,6 +27,27 @@ return {
     end
   },
 
+  -- Mason and Mason-LSPConfig
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason-lspconfig").setup {
+        ensure_installed = {
+          "lua_ls",  -- Lua LSP example
+          "pyright",  -- Python LSP example
+          -- Add other LSPs you want to auto-install
+        },
+        automatic_installation = true,  -- Automatically install missing LSPs
+      }
+    end,
+  },
+
   -- Multi Cursors
   --{
   --  'anuvyklack/hydra.nvim',  -- Hydra is required by multicursors.nvim
